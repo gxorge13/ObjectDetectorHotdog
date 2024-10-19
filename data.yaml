@@ -1,0 +1,6 @@
+train: C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\train
+val: C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\valid
+
+nc: 1  
+
+names: ['hotdog']  # class names

@@ -9,10 +9,10 @@ import os
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # define paths for training and validation images and the labels
-train_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\train\images'
-val_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\valid\images'
-train_labels_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\train\labels'
-val_labels_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\Hotdog Detection\Hot Dog Detection YOLO\valid\labels'
+train_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\train\images'
+val_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\valid\images'
+train_labels_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\train\labels'
+val_labels_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\valid\labels'
 
 # Load YOLOv8 model (pre-trained) and move it to the gpu (or cpu if gpu not found)
 model = YOLO('yolov8n.pt').to(device)
