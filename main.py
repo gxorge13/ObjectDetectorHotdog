@@ -8,6 +8,8 @@ import os
 # Use cuda if available
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+print(f"\n Device: {device}\n")
+
 # define paths for training and validation images and the labels
 train_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\train\images'
 val_img_dir = r'C:\Users\georg\OneDrive\Desktop\Side Projects\ObjectDetectionHotdog\ObjectDetectorHotdog\valid\images'
@@ -34,13 +36,13 @@ def check_image_label_mismatch(image_dir, label_dir):
     
     return extra_labels, extra_images
 
-print("-------------------------------------------------------------------------------")
+print("\n-------------------------------------------------------------------------------")
 print("Checking Training Dataset for Mismatches...")
 extra_train_labels, extra_train_images = check_image_label_mismatch(train_img_dir, train_labels_dir)
 
 print("Checking Validation Dataset for Mismatches...")
 extra_val_labels, extra_val_images = check_image_label_mismatch(val_img_dir, val_labels_dir)
-print("-------------------------------------------------------------------------------")
+print("-------------------------------------------------------------------------------\n")
 
 
 def delete_extra_labels(extra_labels, label_dir):
@@ -62,18 +64,22 @@ def delete_extra_imgs(extra_imgs, img_dir):
         else:
             print(f"File not found: {img_path}")
 
+print("\n")
 delete_extra_labels(extra_val_labels, val_labels_dir)
 delete_extra_labels(extra_train_labels, train_labels_dir)
 delete_extra_imgs(extra_val_images, val_img_dir)
 delete_extra_imgs(extra_train_images, train_img_dir)
+print("\n")
 
 
 # load training and validation datasets
 train_imgs, train_labels = load_dataset(train_img_dir, train_labels_dir)
 val_imgs, val_labels = load_dataset(val_img_dir, val_labels_dir)
 
+print("\n")
 print("Deleted extra train imgs: ", len(train_labels) == len(train_imgs))
 print("Deleted extra val imgs: "  , len(val_labels) == len(val_imgs))
+print("\n")
 
 # Train the model using the training data
 # will use 5 epochs for time and 16 batches with img size 640 for accuracy
